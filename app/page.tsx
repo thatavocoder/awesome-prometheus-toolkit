@@ -1,21 +1,17 @@
 import Header from './components/header/header';
-import SearchInput from './components/search/search-input';
 import Footer from './components/footer/footer';
+import { getGithubInfo } from './components/header/api';
+import { GithubData } from './components/header/classes';
+import Content from './components/content/content';
 
-export default function Home() {
+export default async function Home() {
+  const githubData: GithubData = await getGithubInfo();
+
   return (
     <div>
-      <Header />
-      <main className="px-6 md:px-20 lg:px-40 xl:px-60 pt-32 flex flex-col gap-4">
-        <p className="text-xl font-medium font-inter text-slate-600">
-          Browse Library
-        </p>
-        <SearchInput />
-        <p className="text-2xs font-bold uppercase font-inter text-slate-400">
-          Basic Resource Monitoring
-        </p>
-      </main>
-      <Footer />
+      <Header githubData={githubData} />
+      <Content />
+      <Footer githubData={githubData} />
     </div>
   );
 }
