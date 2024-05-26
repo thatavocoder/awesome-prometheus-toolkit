@@ -10,6 +10,9 @@ export default function Home() {
           Browse Library
         </p>
         <SearchInput />
+        <p className="text-2xs font-bold uppercase font-inter text-slate-400">
+          Basic Resource Monitoring
+        </p>
       </main>
     </div>
   );

@@ -10,7 +10,7 @@ const SearchInput = () => {
       <input
         type="text"
         placeholder="Search for a component"
-        className={`py-1.5 px-9 w-full outline-none border border-slate-200 rounded text-xs bg-search-icon bg-no-repeat bg-left-4 bg-4`}
+        className={`py-1.5 px-9 w-full outline-none border border-slate-200 rounded text-xs bg-search-icon bg-no-repeat bg-left-4 bg-4 text-slate-500`}
         value={search}
         onChange={(e) => {
           if (e.target.value.endsWith('/')) {

@@ -23,6 +23,9 @@ const config: Config = {
       height: {
         '4.5': '1.125rem',
       },
+      fontSize: {
+        '2xs': '0.625rem',
+      },
     },
   },
   plugins: [],
