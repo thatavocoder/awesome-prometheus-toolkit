@@ -1,5 +1,6 @@
 import Header from './components/header/header';
 import SearchInput from './components/search/search-input';
+import Footer from './components/footer/footer';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
           Basic Resource Monitoring
         </p>
       </main>
+      <Footer />
     </div>
   );
 }
