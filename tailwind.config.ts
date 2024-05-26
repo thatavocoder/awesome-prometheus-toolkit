@@ -7,7 +7,23 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'search-icon': 'url("/search.svg")',
+      },
+      backgroundPosition: {
+        'left-4': '1rem center',
+      },
+      backgroundSize: {
+        '4': '1rem',
+      },
+      width: {
+        '4.5': '1.125rem',
+      },
+      height: {
+        '4.5': '1.125rem',
+      },
+    },
   },
   plugins: [],
 };
