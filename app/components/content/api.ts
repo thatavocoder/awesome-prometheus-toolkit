@@ -14,7 +14,7 @@ export const getRulesYml = async (): Promise<string> => {
 
 export const getRulesDetailsYml = (service: string, ruleSlug: string) => {
   const serviceName = service.replace(/ /g, '-').toLowerCase();
-  const res = fetch(
+  const res = get(
     `https://raw.githubusercontent.com/samber/awesome-prometheus-alerts/master/dist/rules/${serviceName}/${ruleSlug}.yml`,
   )
     .then((res) => {

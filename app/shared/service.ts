@@ -7,9 +7,6 @@ enum RequestMethod {
 
 interface RequestOptions {
   method: RequestMethod;
-  headers: {
-    'Content-Type': string;
-  };
   body?: string;
 }
 
@@ -20,9 +17,6 @@ export async function apiRequest(
 ): Promise<Response> {
   const options: RequestOptions = {
     method,
-    headers: {
-      'Content-Type': 'application/json',
-    },
   };
 
   if (data) {
