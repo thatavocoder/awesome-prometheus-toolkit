@@ -28,14 +28,16 @@ const ViewButton = ({
       >
         View Alert Rules
       </button>
-      <RulesDialog
-        exporterRules={exporterRules}
-        isDialogOpen={isDialogOpen}
-        isImage={isImage}
-        rules={rules}
-        serviceName={serviceName}
-        setIsDialogOpen={setIsDialogOpen}
-      />
+      {isDialogOpen && (
+        <RulesDialog
+          exporterRules={exporterRules}
+          isDialogOpen={isDialogOpen}
+          isImage={isImage}
+          rules={rules}
+          serviceName={serviceName}
+          setIsDialogOpen={setIsDialogOpen}
+        />
+      )}
     </>
   );
 };

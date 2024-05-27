@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import Dialog from './dialog';
+import Dialog from '../../shared/components/dialog';
 import Image from 'next/image';
 import { ExporterRule, RuleDetailsRule } from './classes';
 import RuleDetails from './rule-details';
