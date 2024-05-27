@@ -1,9 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 
-const SearchInput = () => {
-  const [search, setSearch] = React.useState('');
+interface SearchInputProps {
+  handleSearch: (searchString: string) => void;
+}
+
+const SearchInput = ({ handleSearch }: SearchInputProps) => {
+  const [search, setSearch] = useState('');
 
   return (
     <div className="relative flex items-center">
@@ -14,21 +18,21 @@ const SearchInput = () => {
         value={search}
         onChange={(e) => {
           if (e.target.value.endsWith('/')) {
-            console.log('search');
+            handleSearch(search);
           } else {
             setSearch(e.target.value);
           }
         }}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
-            console.log('search');
+            handleSearch(search);
           }
         }}
       />
       <button
         className="bg-slate-50 hover:bg-slate-100 active:bg-slate-200 border border-slate-100 text-slate-500 absolute right-4 w-4.5 h-4.5 text-xs"
         onClick={() => {
-          console.log('search');
+          handleSearch(search);
         }}
       >
         /
