@@ -17,10 +17,14 @@ const Footer = async ({ githubData }: FooterProps) => {
       >
         Contribute on GitHub
       </Link>
-      <div className="flex items-center gap-1">
+      <Link
+        href={'https://last9.io/'}
+        target="_blank"
+        className="flex items-center gap-1"
+      >
         <p className="text-xs text-slate-400">Maintained by Last9</p>
         <Image src={'/last9-logo.svg'} alt="Last9" width={20} height={20} />
-      </div>
+      </Link>
     </div>
   );
 };
