@@ -17,11 +17,8 @@ const SearchInput = ({ handleSearch }: SearchInputProps) => {
         className={`py-1.5 px-9 w-full outline-none border border-slate-200 rounded text-xs bg-search-icon bg-no-repeat bg-left-4 bg-4 text-slate-500`}
         value={search}
         onChange={(e) => {
-          if (e.target.value.endsWith('/')) {
-            handleSearch(search);
-          } else {
-            setSearch(e.target.value);
-          }
+          handleSearch(e.target.value);
+          setSearch(e.target.value);
         }}
         onKeyDown={(e) => {
           if (e.key === 'Enter') {
