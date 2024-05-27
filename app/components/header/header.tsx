@@ -14,7 +14,7 @@ const Header = async ({ githubData }: HeaderProps) => {
   const formattedStarCount = formatNumber(starCount);
 
   return (
-    <div className="w-full h-max px-6 md:px-20 lg:px-40 xl:px-60 flex items-end justify-between bg-white border-b border-slate-200 fixed top-0">
+    <div className="w-full h-max px-6 md:px-20 lg:px-40 xl:px-60 flex items-end justify-between bg-white border-b border-slate-200 fixed top-0 z-40">
       <Link href="/">
         <Image
           priority

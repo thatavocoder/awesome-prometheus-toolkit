@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundColor: {
+        overlay: '#27374780',
+      },
       backgroundImage: {
         'search-icon': 'url("/search.svg")',
       },
@@ -28,6 +31,13 @@ const config: Config = {
       },
       fontSize: {
         '2xs': '0.625rem',
+      },
+      boxShadow: {
+        custom:
+          '0px 4px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.1)',
+      },
+      maxHeight: {
+        '4/5': '80%',
       },
     },
   },

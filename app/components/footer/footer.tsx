@@ -9,7 +9,7 @@ interface FooterProps {
 
 const Footer = async ({ githubData }: FooterProps) => {
   return (
-    <div className="w-full px-6 md:px-20 lg:px-40 xl:px-60 py-4.5 border-t border-slate-100 fixed bottom-0 flex items-center justify-between">
+    <div className="w-full px-6 md:px-20 lg:px-40 xl:px-60 py-4.5 bg-white border-t border-slate-100 fixed bottom-0 flex items-center justify-between z-40">
       <Link
         href={githubData.html_url}
         target="_blank"
