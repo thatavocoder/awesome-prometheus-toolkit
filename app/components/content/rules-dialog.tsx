@@ -35,7 +35,9 @@ const RulesDialog = ({
             width={24}
             height={24}
           />
-          <p className="font-semibold text-slate-600">{serviceName}</p>
+          <p className="font-semibold text-slate-600 text-sm md:text-base">
+            {serviceName}
+          </p>
           <span className="bg-slate-100 text-slate-400 rounded-full text-2xs font-bold uppercase px-1">
             {rules?.length} rules
           </span>

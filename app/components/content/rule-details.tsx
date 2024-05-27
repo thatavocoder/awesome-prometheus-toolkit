@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ExporterRule, RuleDetailsRule } from './classes';
 import Image from 'next/image';
 
@@ -9,6 +9,8 @@ interface RuleDetailsProps {
 }
 
 const RuleDetails = ({ index, exporterRule, rules }: RuleDetailsProps) => {
+  const [copied, setCopied] = useState(false);
+
   const ruleNameAlert = exporterRule.name
     .split(' ')
     .map((word) => word.toLowerCase())
@@ -17,6 +19,12 @@ const RuleDetails = ({ index, exporterRule, rules }: RuleDetailsProps) => {
   const rule = rules.find((rule) => rule.alert === ruleNameAlert);
 
   const copyText = `alert: ${rule?.alert}\nexpr: ${rule?.expr}\nfor: ${rule?.for}\nlabels:\n  severity: ${rule?.labels?.severity}\nannotations:\n  summary: ${rule?.annotations?.summary}\n  description: ${rule?.annotations?.description}`;
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(copyText);
+    setCopied(true); // Set copied state to true
+    setTimeout(() => setCopied(false), 3000); // Reset copied state after 3 seconds
+  };
 
   return (
     <div className="flex items-start gap-4 max-w-4xl overflow-x-hidden">
@@ -61,10 +69,15 @@ const RuleDetails = ({ index, exporterRule, rules }: RuleDetailsProps) => {
           </div>
           <button
             className="absolute top-0 right-0 flex items-center gap-1 bg-slate-100 py-2 px-3 text-2xs uppercase text-slate-500 font-bold font-inter rounded-tr rounded-bl"
-            onClick={() => navigator.clipboard.writeText(copyText)}
+            onClick={handleCopy}
           >
-            <Image src="/copy.svg" alt="Copy" width={8.5} height={10} />
-            Copy
+            <Image
+              src={copied ? '/check.svg' : '/copy.svg'}
+              alt="Copy"
+              width={copied ? 12 : 8.5}
+              height={copied ? 12 : 10}
+            />
+            {copied ? 'Copied!' : 'Copy'}
           </button>
         </div>
       </div>
