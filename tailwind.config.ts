@@ -39,6 +39,9 @@ const config: Config = {
       maxHeight: {
         '4/5': '80%',
       },
+      maxWidth: {
+        '4/5': '80%',
+      },
       fontFamily: {
         'jetbrains-mono': ['JetBrains Mono', 'monospace'],
         inter: ['Inter', 'sans-serif'],

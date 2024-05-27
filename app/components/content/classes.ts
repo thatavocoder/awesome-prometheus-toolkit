@@ -25,7 +25,7 @@ export interface RulesData {
   groups: Group[];
 }
 
-export interface RuleDetailsRules {
+export interface RuleDetailsRule {
   alert: string;
   expr: string;
   for: string;
@@ -38,7 +38,7 @@ export interface RuleDetailsRules {
 
 interface RulesDetailsGroup {
   name: string;
-  rules: RuleDetailsRules[];
+  rules: RuleDetailsRule[];
 }
 
 export interface RulesDetails {

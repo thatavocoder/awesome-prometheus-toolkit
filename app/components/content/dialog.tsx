@@ -19,7 +19,7 @@ const Dialog = ({ isOpen, onClose, children }: DialogProps) => {
         role="button"
       />
       <div
-        className="bg-white w-max max-w-full z-50 shadow-custom rounded-lg max-h-4/5 overflow-y-scroll overflow-x-hidden no-scrollbar"
+        className="bg-white w-max max-w-4/5 z-50 shadow-custom rounded-lg max-h-4/5 overflow-y-scroll overflow-x-hidden no-scrollbar"
         style={{ transitionDuration: '300ms' }}
       >
         {children}
