@@ -37,7 +37,7 @@ const RulesDialog = ({
           />
           <p className="font-semibold text-slate-600">{serviceName}</p>
           <span className="bg-slate-100 text-slate-400 rounded-full text-2xs font-bold uppercase px-1">
-            {rules.length} rules
+            {rules?.length} rules
           </span>
         </div>
         <Image

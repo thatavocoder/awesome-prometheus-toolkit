@@ -1,27 +1,44 @@
-import Image from 'next/image';
-import React from 'react';
+import NextImage from 'next/image';
+import React, { useEffect, useState } from 'react';
 import { Exporter, RulesDetails } from './classes';
 import { ymlToJson } from './utils';
 import ViewButton from './view-button';
+import { getRulesDetailsYml } from './api';
 
 interface CardProps {
   exporter: Exporter;
-  rulesDetailsYml: string;
-  isImage: boolean;
   serviceName: string;
 }
 
-const Card = ({
-  exporter,
-  rulesDetailsYml,
-  isImage,
-  serviceName,
-}: CardProps) => {
+const Card = ({ exporter, serviceName }: CardProps) => {
+  const [isImage, setIsImage] = useState(false);
+  const [rulesDetailsYml, setRulesDetailsYml] = useState('');
+
   const rulesDetails: RulesDetails = ymlToJson(rulesDetailsYml);
 
-  const ungroupedRules = rulesDetails.groups
+  const ungroupedRules = rulesDetails?.groups
     .flatMap((group) => group.rules)
     .filter((rule) => rule !== null);
+
+  useEffect(() => {
+    getRulesDetailsYml(serviceName, exporter.slug).then((res) => {
+      if (res) setRulesDetailsYml(res);
+    });
+
+    const img = new Image();
+    img.src = `https://cdn.simpleicons.org/${serviceName.split(' ')[0].toLowerCase()}`;
+    img.onload = () => {
+      setIsImage(true);
+    };
+    img.onerror = () => {
+      setIsImage(false);
+    };
+
+    return () => {
+      img.onload = null;
+      img.onerror = null;
+    };
+  }, [exporter.slug, serviceName]);
 
   return (
     <div
@@ -29,7 +46,7 @@ const Card = ({
       key={exporter.slug}
     >
       <div className="flex items-center gap-2">
-        <Image
+        <NextImage
           src={
             isImage
               ? `https://cdn.simpleicons.org/${serviceName.split(' ')[0].toLowerCase()}`
@@ -43,7 +60,7 @@ const Card = ({
       </div>
       <p className="text-xs font-medium text-slate-400 line-clamp-3 flex-1">
         <span className="bg-slate-100 rounded-full text-2xs font-bold uppercase px-1">
-          {ungroupedRules.length} rules
+          {ungroupedRules?.length} rules
         </span>{' '}
         {exporter.rules?.map((rule) => rule?.name).join(', ')}
       </p>
